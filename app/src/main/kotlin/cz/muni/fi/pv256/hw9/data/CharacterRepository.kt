@@ -18,12 +18,11 @@ class CharacterRepository(context: Context) {
         // TODO implement: get data from DB and perform entity refresh from Internet
 
         try {
-            // get fresh data from Internet
             val characters = ApiService.apiService.getCharacter(id)
             characterDao.insertAll(characters)
         } catch (e: Exception) {
             Log.e(TAG, "Getting data from the Internet failed", e)
-            emitSource(characterDao.loadAllById(id))
+            emitSource(characterDao.loadById(id))
         }
         // Underlying DetailActivity doesn't work with Result, so there's no need to wrap
         // returned LiveData into another object

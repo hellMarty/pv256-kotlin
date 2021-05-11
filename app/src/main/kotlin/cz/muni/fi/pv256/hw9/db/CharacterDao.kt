@@ -13,8 +13,8 @@ interface CharacterDao {
     @Query("SELECT * FROM character")
     fun getAll(): LiveData<List<Character>>
 
-    @Query("SELECT * FROM character WHERE id IN (:id)")
-    fun loadAllById(id: Int): LiveData<Character>
+    @Query("SELECT * FROM character WHERE id IN (:id) LIMIT 1")
+    fun loadById(id: Int): LiveData<Character>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAll(vararg characters: Character)

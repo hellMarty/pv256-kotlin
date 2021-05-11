@@ -10,9 +10,9 @@ import com.squareup.moshi.JsonClass
 @Entity
 data class Character(
     @PrimaryKey val id: Int,
-    @ColumnInfo(name = "name") @field:Json(name = "name") val name: String,
-    @ColumnInfo(name = "status") @field:Json(name = "status") val status: String,
-    @ColumnInfo(name = "species") @field:Json(name = "species") val species: String,
-    @ColumnInfo(name = "gender") @field:Json(name = "gender") val gender: String,
-    @ColumnInfo(name = "image") @field:Json(name = "image") val image: String,
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "status") val status: String,
+    @ColumnInfo(name = "species") val species: String,
+    @ColumnInfo(name = "gender") val gender: String,
+    @ColumnInfo(name = "image") val image: String,
 )
