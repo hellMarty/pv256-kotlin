@@ -6,6 +6,7 @@ class Result<out T> private constructor(
     val exception: Throwable? = null
 ) {
 
+
     companion object {
         fun <T> loading(value: T): Result<T> =
             Result(value, State.LOADING)
