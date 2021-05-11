@@ -20,7 +20,6 @@ class CharacterRepository(context: Context) {
         try {
             // get fresh data from Internet
             val characters = ApiService.apiService.getCharacter(id)
-            // persist new result
             characterDao.insertAll(characters)
         } catch (e: Exception) {
             Log.e(TAG, "Getting data from the Internet failed", e)
