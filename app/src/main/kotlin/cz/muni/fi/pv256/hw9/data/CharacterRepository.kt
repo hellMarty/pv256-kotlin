@@ -20,9 +20,9 @@ class CharacterRepository(context: Context) {
         try {
             val characters = ApiService.apiService.getCharacter(id)
             characterDao.insertAll(characters)
+            emitSource(characterDao.loadById(id))
         } catch (e: Exception) {
             Log.e(TAG, "Getting data from the Internet failed", e)
-            emitSource(characterDao.loadById(id))
         }
         // Underlying DetailActivity doesn't work with Result, so there's no need to wrap
         // returned LiveData into another object
