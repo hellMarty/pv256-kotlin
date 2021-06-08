@@ -17,7 +17,7 @@ interface CharacterDao {
     fun loadById(id: Int): LiveData<Character>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertAll(vararg characters: Character)
+    suspend fun insertAll(vararg characters: Character)
 
     @Delete
     fun delete(character: Character)
